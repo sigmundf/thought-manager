@@ -30,15 +30,16 @@
 
         <section id="initial-feelings">
             <h2>This Thought Makes Me Feel</h2>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="initial-feeling" value="Sad"> Sad</label>
-                <label><input type="checkbox" name="initial-feeling" value="Despondent"> Despondent</label>
-                <label><input type="checkbox" name="initial-feeling" value="Miserable"> Miserable</label>
-                <label><input type="checkbox" name="initial-feeling" value="Angry"> Angry</label>
-                <label><input type="checkbox" name="initial-feeling" value="Embarrassed"> Embarrassed</label>
-                <label><input type="checkbox" name="initial-feeling" value="Anxious"> Anxious</label>
-                <label><input type="checkbox" name="initial-feeling" value="Frustrated"> Frustrated</label>
-            </div>
+            <select id="initial-feeling">
+                <option value="">Select a feeling...</option>
+                <option value="Sad">Sad</option>
+                <option value="Despondent">Despondent</option>
+                <option value="Miserable">Miserable</option>
+                <option value="Angry">Angry</option>
+                <option value="Embarrassed">Embarrassed</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Frustrated">Frustrated</option>
+            </select>
         </section>
 
         <section id="evidence">
@@ -61,14 +62,15 @@
 
         <section id="final-feelings">
             <h2>And This Makes Me Feel</h2>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="final-feeling" value="Disappointed"> Disappointed</label>
-                <label><input type="checkbox" name="final-feeling" value="Disappointed but it's Manageable"> Disappointed but it's Manageable</label>
-                <label><input type="checkbox" name="final-feeling" value="Resigned"> Resigned</label>
-                <label><input type="checkbox" name="final-feeling" value="Relieved"> Relieved</label>
-                <label><input type="checkbox" name="final-feeling" value="A bit Better"> A bit Better</label>
-                <label><input type="checkbox" name="final-feeling" value="Hopeful"> Hopeful</label>
-            </div>
+            <select id="final-feeling">
+                <option value="">Select a feeling...</option>
+                <option value="Disappointed">Disappointed</option>
+                <option value="Disappointed but it's Manageable">Disappointed but it's Manageable</option>
+                <option value="Resigned">Resigned</option>
+                <option value="Relieved">Relieved</option>
+                <option value="A bit Better">A bit Better</option>
+                <option value="Hopeful">Hopeful</option>
+            </select>
         </section>
 
         <button id="save-thought">Save This Thought Exercise</button>
