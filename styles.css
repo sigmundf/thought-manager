@@ -1,3 +1,38 @@
+/* Add this to the top of your existing CSS */
+header {
+    position: relative;
+    padding-top: 60px; /* Adjust this value based on the image size */
+}
+
+#freud-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+}
+
+/* For smaller screens */
+@media (max-width: 375px) {
+    #freud-image {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        left: 5px;
+    }
+
+    header {
+        padding-top: 50px; /* Adjust this value for smaller screens */
+    }
+}
+
+/* Rest of your existing CSS remains the same */
+
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     line-height: 1.4;
