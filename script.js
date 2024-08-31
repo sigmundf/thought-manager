@@ -7,24 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveButton = document.getElementById('save-thought');
     const thoughtList = document.getElementById('thought-list');
 
+    function formatStarterText(text) {
+        return text.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+    }
+
     thoughtType.addEventListener('change', () => {
         if (thoughtType.value) {
             thoughtDetails.style.display = 'block';
-            thoughtDetails.placeholder = thoughtType.value === 'custom' 
-                ? 'Enter your custom thought here' 
-                : `Complete your "${thoughtType.options[thoughtType.selectedIndex].text}" thought`;
+            if (thoughtType.value === 'custom') {
+                thoughtDetails.value = '';
+                thoughtDetails.placeholder = 'Enter your custom thought here';
+            } else {
+                let starterText = thoughtType.options[thoughtType.selectedIndex].text;
+                starterText = formatStarterText(starterText);
+                thoughtDetails.value = starterText + ' ';
+                thoughtDetails.placeholder = `Complete your "${starterText}" thought`;
+            }
+            thoughtDetails.focus();
+            thoughtDetails.setSelectionRange(thoughtDetails.value.length, thoughtDetails.value.length);
         } else {
             thoughtDetails.style.display = 'none';
+            thoughtDetails.value = '';
         }
     });
 
     balancedThoughtStarter.addEventListener('change', () => {
         if (balancedThoughtStarter.value && balancedThoughtStarter.value !== 'custom') {
             let starterText = balancedThoughtStarter.options[balancedThoughtStarter.selectedIndex].text;
-            // Remove any dashes and capitalize the first letter
-            starterText = starterText.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+            starterText = formatStarterText(starterText);
             balancedThoughtInput.value = starterText + ' ';
-            // Place the cursor at the end of the pre-filled text
             balancedThoughtInput.focus();
             balancedThoughtInput.setSelectionRange(balancedThoughtInput.value.length, balancedThoughtInput.value.length);
         } else {
@@ -35,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     saveButton.addEventListener('click', () => {
         const thoughtText = thoughtType.value === 'custom' 
             ? thoughtDetails.value 
-            : `${thoughtType.options[thoughtType.selectedIndex].text} ${thoughtDetails.value}`;
+            : thoughtDetails.value;
         const evidence = evidenceInput.value;
         const balancedThought = balancedThoughtInput.value;
 
