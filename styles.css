@@ -54,7 +54,7 @@ select:focus, input:focus, textarea:focus {
     border-color: #0071e3;
 }
 
-button {
+button, .button {
     background-color: #0071e3;
     color: white;
     padding: 15px 30px;
@@ -65,9 +65,12 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
 }
 
-button:hover {
+button:hover, .button:hover {
     background-color: #0077ed;
 }
 
@@ -93,7 +96,6 @@ footer p {
     font-size: 14px;
 }
 
-/* Custom styles for specific elements */
 #thought-type, #balanced-thought-starter {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
@@ -103,5 +105,20 @@ footer p {
 }
 
 #thought-details {
-    display: none; /* Initially hidden, will be shown when a thought type is selected */
+    display: none;
+}
+
+#storage-info {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#storage-info ul {
+    padding-left: 20px;
+}
+
+#storage-info li {
+    margin-bottom: 10px;
 }
