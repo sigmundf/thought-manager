@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const thoughtType = document.getElementById('thought-type');
+    const thoughtDetails = document.getElementById('thought-details');
     const customThought = document.getElementById('custom-thought');
     const balancedThoughtStarter = document.getElementById('balanced-thought-starter');
     const balancedThoughtInput = document.getElementById('balanced-thought-input');
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     thoughtType.addEventListener('change', () => {
         customThought.style.display = thoughtType.value === 'custom' ? 'block' : 'none';
+        thoughtDetails.style.display = thoughtType.value === 'custom' ? 'none' : 'inline-block';
     });
 
     balancedThoughtStarter.addEventListener('change', () => {
@@ -17,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     saveButton.addEventListener('click', () => {
-        const thoughtText = thoughtType.value === 'custom' ? customThought.value : thoughtType.options[thoughtType.selectedIndex].text;
+        let thoughtText;
+        if (thoughtType.value === 'custom') {
+            thoughtText = customThought.value;
+        } else {
+            thoughtText = thoughtType.options[thoughtType.selectedIndex].text + ' ' + thoughtDetails.value;
+        }
         const evidence = document.getElementById('evidence-input').value;
         const balancedThought = balancedThoughtInput.value;
 
@@ -32,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Clear inputs
             thoughtType.value = '';
+            thoughtDetails.value = '';
             customThought.value = '';
             document.getElementById('evidence-input').value = '';
             balancedThoughtStarter.value = '';
