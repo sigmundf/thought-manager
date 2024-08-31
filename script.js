@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const balancedThoughtStarter = document.getElementById('balanced-thought-starter');
     const balancedThoughtInput = document.getElementById('balanced-thought-input');
     const saveButton = document.getElementById('save-thought');
-    const thoughtList = document.getElementById('thought-list');
 
     function formatStarterText(text) {
         return text.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
@@ -51,13 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const balancedThought = balancedThoughtInput.value;
 
         if (thoughtText && evidence && balancedThought) {
-            const thoughtItem = document.createElement('li');
-            thoughtItem.innerHTML = `
-                <strong>Automatic Thought:</strong> ${thoughtText}<br>
-                <strong>Evidence Against:</strong> ${evidence}<br>
-                <strong>Balanced Thought:</strong> ${balancedThought}
-            `;
-            thoughtList.appendChild(thoughtItem);
+            const thought = {
+                automaticThought: thoughtText,
+                evidence: evidence,
+                balancedThought: balancedThought,
+                date: new Date().toLocaleString()
+            };
+
+            // Save to localStorage
+            let savedThoughts = JSON.parse(localStorage.getItem('savedThoughts')) || [];
+            savedThoughts.push(thought);
+            localStorage.setItem('savedThoughts', JSON.stringify(savedThoughts));
 
             // Clear inputs
             thoughtType.value = '';
@@ -66,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             evidenceInput.value = '';
             balancedThoughtStarter.value = '';
             balancedThoughtInput.value = '';
+
+            alert('Thought exercise saved successfully!');
         } else {
             alert('Please fill in all fields before saving.');
         }
