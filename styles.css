@@ -9,13 +9,7 @@ body {
     font-size: 14px;
 }
 
-header {
-    text-align: center;
-    padding: 60px 0 10px;
-    position: relative;
-}
-
-footer {
+header, footer {
     text-align: center;
     padding: 10px 0;
 }
@@ -138,18 +132,6 @@ footer p {
     margin-bottom: 4px;
 }
 
-#freud-image {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-    height: 50px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 25px;
-}
-
 @media (max-width: 375px) {
     body {
         padding: 8px;
@@ -165,15 +147,7 @@ footer p {
     }
 
     h2 {
-        font-size: 14px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    #initial-feelings h2,
-    #evidence h2 {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     header p {
@@ -191,16 +165,5 @@ footer p {
 
     #storage-info {
         font-size: 11px;
-    }
-
-    #freud-image {
-        width: 40px;
-        height: 40px;
-        top: 5px;
-        left: 5px;
-    }
-
-    header {
-        padding-top: 50px;
     }
 }
