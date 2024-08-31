@@ -61,6 +61,16 @@ button:hover {
     flex: 1;
 }
 
+/* Add these rules to your existing CSS */
+#thought-type, #thought-details {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#thought-details {
+    display: none; /* Initially hidden, will be shown when a thought type is selected */
+}
+
 #thought-details {
     display: inline-block;
 }
