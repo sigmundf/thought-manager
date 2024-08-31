@@ -9,12 +9,12 @@
 <body>
     <header>
         <h1>Thought Manager</h1>
-        <p>Your feelings can deceive you and are not always accurate. Use this tool to challenge your automatic thoughts and develop more balanced thinking. It will result in incrementally better feelings.  </p>
+        <p>Challenge your automatic thoughts and develop more balanced thinking</p>
     </header>
 
     <main>
         <section id="thought-input">
-            <h2>Identify the Black & White Thought that Leads to Distress</h2>
+            <h2>Identify Your Thought</h2>
             <select id="thought-type">
                 <option value="">Select a thought type</option>
                 <option value="i-am">I am...</option>
@@ -23,14 +23,27 @@
                 <option value="i-always">I always...</option>
                 <option value="i-never">I never...</option>
                 <option value="i-should">I should...</option>
-                <option value="i-shouldn't">I shouldn't...</option>
+                <option value="custom">Custom thought...</option>
             </select>
             <input type="text" id="thought-details" placeholder="Complete your thought here...">
         </section>
 
+        <section id="initial-feelings">
+            <h2>This Thought Makes Me Feel</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="initial-feeling" value="Sad"> Sad</label>
+                <label><input type="checkbox" name="initial-feeling" value="Despondent"> Despondent</label>
+                <label><input type="checkbox" name="initial-feeling" value="Miserable"> Miserable</label>
+                <label><input type="checkbox" name="initial-feeling" value="Angry"> Angry</label>
+                <label><input type="checkbox" name="initial-feeling" value="Embarrassed"> Embarrassed</label>
+                <label><input type="checkbox" name="initial-feeling" value="Anxious"> Anxious</label>
+                <label><input type="checkbox" name="initial-feeling" value="Frustrated"> Frustrated</label>
+            </div>
+        </section>
+
         <section id="evidence">
             <h2>Evidence Against This Thought</h2>
-            <textarea id="evidence-input" rows="4" placeholder="What evidence suggests this thought might not be ENTIRELY true?"></textarea>
+            <textarea id="evidence-input" rows="4" placeholder="What evidence suggests this thought might not be entirely true?"></textarea>
         </section>
 
         <section id="balanced-thought">
@@ -44,6 +57,18 @@
                 <option value="custom">Custom starter...</option>
             </select>
             <textarea id="balanced-thought-input" rows="4" placeholder="Complete your balanced thought here..."></textarea>
+        </section>
+
+        <section id="final-feelings">
+            <h2>And This Makes Me Feel</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="final-feeling" value="Disappointed"> Disappointed</label>
+                <label><input type="checkbox" name="final-feeling" value="Disappointed but it's Manageable"> Disappointed but it's Manageable</label>
+                <label><input type="checkbox" name="final-feeling" value="Resigned"> Resigned</label>
+                <label><input type="checkbox" name="final-feeling" value="Relieved"> Relieved</label>
+                <label><input type="checkbox" name="final-feeling" value="A bit Better"> A bit Better</label>
+                <label><input type="checkbox" name="final-feeling" value="Hopeful"> Hopeful</label>
+            </div>
         </section>
 
         <button id="save-thought">Save This Thought Exercise</button>
