@@ -64,10 +64,11 @@ button, .button {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: block;
     width: 100%;
-    display: inline-block;
     text-align: center;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 button:hover, .button:hover {
