@@ -20,7 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     balancedThoughtStarter.addEventListener('change', () => {
         if (balancedThoughtStarter.value && balancedThoughtStarter.value !== 'custom') {
-            balancedThoughtInput.value = balancedThoughtStarter.value + ' ';
+            let starterText = balancedThoughtStarter.options[balancedThoughtStarter.selectedIndex].text;
+            // Remove any dashes and capitalize the first letter
+            starterText = starterText.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+            balancedThoughtInput.value = starterText + ' ';
+            // Place the cursor at the end of the pre-filled text
+            balancedThoughtInput.focus();
+            balancedThoughtInput.setSelectionRange(balancedThoughtInput.value.length, balancedThoughtInput.value.length);
+        } else {
+            balancedThoughtInput.value = '';
         }
     });
 
