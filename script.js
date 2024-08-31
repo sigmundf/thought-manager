@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const thoughtType = document.getElementById('thought-type');
     const thoughtDetails = document.getElementById('thought-details');
+    const initialFeeling = document.getElementById('initial-feeling');
     const evidenceInput = document.getElementById('evidence-input');
     const balancedThoughtStarter = document.getElementById('balanced-thought-starter');
     const balancedThoughtInput = document.getElementById('balanced-thought-input');
+    const finalFeeling = document.getElementById('final-feeling');
     const saveButton = document.getElementById('save-thought');
 
     function formatStarterText(text) {
@@ -49,16 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const evidence = evidenceInput.value;
         const balancedThought = balancedThoughtInput.value;
         
-        const initialFeelings = Array.from(document.querySelectorAll('input[name="initial-feeling"]:checked')).map(el => el.value);
-        const finalFeelings = Array.from(document.querySelectorAll('input[name="final-feeling"]:checked')).map(el => el.value);
+        const initialFeelingValue = initialFeeling.value;
+        const finalFeelingValue = finalFeeling.value;
 
-        if (thoughtText && evidence && balancedThought) {
+        if (thoughtText && evidence && balancedThought && initialFeelingValue && finalFeelingValue) {
             const thought = {
                 automaticThought: thoughtText,
-                initialFeelings: initialFeelings,
+                initialFeeling: initialFeelingValue,
                 evidence: evidence,
                 balancedThought: balancedThought,
-                finalFeelings: finalFeelings,
+                finalFeeling: finalFeelingValue,
                 date: new Date().toLocaleString()
             };
 
@@ -71,10 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             thoughtType.value = '';
             thoughtDetails.value = '';
             thoughtDetails.style.display = 'none';
+            initialFeeling.value = '';
             evidenceInput.value = '';
             balancedThoughtStarter.value = '';
             balancedThoughtInput.value = '';
-            document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+            finalFeeling.value = '';
 
             alert('Thought exercise saved successfully!');
         } else {
