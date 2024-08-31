@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thought Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Thought Manager</h1>
+        <p>Challenge your automatic thoughts and develop more balanced thinking</p>
+    </header>
+
+    <main>
+        <section id="thought-input">
+            <h2>Identify Your Thought</h2>
+            <select id="thought-type">
+                <option value="">Select a thought type</option>
+                <option value="i-am">I am...</option>
+                <option value="i-must">I must...</option>
+                <option value="i-have-to">I have to...</option>
+                <option value="i-always">I always...</option>
+                <option value="i-never">I never...</option>
+                <option value="i-should">I should...</option>
+                <option value="custom">Custom thought...</option>
+            </select>
+            <input type="text" id="custom-thought" placeholder="Enter your thought here" style="display: none;">
+        </section>
+
+        <section id="evidence">
+            <h2>Evidence Against This Thought</h2>
+            <textarea id="evidence-input" rows="4" placeholder="What evidence suggests this thought might not be entirely true?"></textarea>
+        </section>
+
+        <section id="balanced-thought">
+            <h2>Develop a Balanced Thought</h2>
+            <select id="balanced-thought-starter">
+                <option value="">Select a starter...</option>
+                <option value="it-would-be-nice">It would be nice if...</option>
+                <option value="i-prefer">I prefer...</option>
+                <option value="i-dont-have-to">I don't have to...</option>
+                <option value="sometimes">Sometimes...</option>
+                <option value="custom">Custom starter...</option>
+            </select>
+            <textarea id="balanced-thought-input" rows="4" placeholder="Complete your balanced thought here..."></textarea>
+        </section>
+
+        <button id="save-thought">Save This Thought Exercise</button>
+
+        <section id="saved-thoughts">
+            <h2>Your Thought Exercises</h2>
+            <ul id="thought-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Remember: Thoughts are not facts. Practice challenging them regularly.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
