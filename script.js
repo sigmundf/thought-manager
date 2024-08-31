@@ -1,15 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const thoughtType = document.getElementById('thought-type');
     const thoughtDetails = document.getElementById('thought-details');
-    const customThought = document.getElementById('custom-thought');
     const balancedThoughtStarter = document.getElementById('balanced-thought-starter');
     const balancedThoughtInput = document.getElementById('balanced-thought-input');
     const saveButton = document.getElementById('save-thought');
     const thoughtList = document.getElementById('thought-list');
 
     thoughtType.addEventListener('change', () => {
-        customThought.style.display = thoughtType.value === 'custom' ? 'block' : 'none';
-        thoughtDetails.style.display = thoughtType.value === 'custom' ? 'none' : 'inline-block';
+        if (thoughtType.value) {
+            thoughtDetails.style.display = 'block';
+            thoughtDetails.placeholder = thoughtType.value === 'custom' 
+                ? 'Enter your custom thought here' 
+                : `Complete your "${thoughtType.options[thoughtType.selectedIndex].text}" thought`;
+        } else {
+            thoughtDetails.style.display = 'none';
+        }
     });
 
     balancedThoughtStarter.addEventListener('change', () => {
@@ -19,12 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     saveButton.addEventListener('click', () => {
-        let thoughtText;
-        if (thoughtType.value === 'custom') {
-            thoughtText = customThought.value;
-        } else {
-            thoughtText = thoughtType.options[thoughtType.selectedIndex].text + ' ' + thoughtDetails.value;
-        }
+        const thoughtText = thoughtType.value === 'custom' 
+            ? thoughtDetails.value 
+            : `${thoughtType.options[thoughtType.selectedIndex].text} ${thoughtDetails.value}`;
         const evidence = document.getElementById('evidence-input').value;
         const balancedThought = balancedThoughtInput.value;
 
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear inputs
             thoughtType.value = '';
             thoughtDetails.value = '';
-            customThought.value = '';
+            thoughtDetails.style.display = 'none';
             document.getElementById('evidence-input').value = '';
             balancedThoughtStarter.value = '';
             balancedThoughtInput.value = '';
