@@ -48,12 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
             : thoughtDetails.value;
         const evidence = evidenceInput.value;
         const balancedThought = balancedThoughtInput.value;
+        
+        const initialFeelings = Array.from(document.querySelectorAll('input[name="initial-feeling"]:checked')).map(el => el.value);
+        const finalFeelings = Array.from(document.querySelectorAll('input[name="final-feeling"]:checked')).map(el => el.value);
 
         if (thoughtText && evidence && balancedThought) {
             const thought = {
                 automaticThought: thoughtText,
+                initialFeelings: initialFeelings,
                 evidence: evidence,
                 balancedThought: balancedThought,
+                finalFeelings: finalFeelings,
                 date: new Date().toLocaleString()
             };
 
@@ -69,10 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
             evidenceInput.value = '';
             balancedThoughtStarter.value = '';
             balancedThoughtInput.value = '';
+            document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
 
             alert('Thought exercise saved successfully!');
         } else {
-            alert('Please fill in all fields before saving.');
+            alert('Please fill in all required fields before saving.');
         }
     });
 });
