@@ -25,6 +25,7 @@ select, input, textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 button {
@@ -33,6 +34,7 @@ button {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    width: 100%;
 }
 
 button:hover {
@@ -51,19 +53,7 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Add this to your existing CSS */
-.thought-input-container {
-    display: flex;
-    gap: 10px;
-}
-
-#thought-type, #thought-details {
-    flex: 1;
-}
-
-/* Add these rules to your existing CSS */
-#thought-type, #thought-details {
-    width: 100%;
+#thought-type, #thought-details, #balanced-thought-starter, #balanced-thought-input {
     margin-bottom: 10px;
 }
 
@@ -71,6 +61,6 @@ button:hover {
     display: none; /* Initially hidden, will be shown when a thought type is selected */
 }
 
-#thought-details {
-    display: inline-block;
+section {
+    margin-bottom: 20px;
 }
