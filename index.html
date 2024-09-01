@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thought Manager</title>
-    <link rel="stylesheet" href="styles.css">
+    <script>
+        function updatePlaceholder() {
+            const selectedOption = document.getElementById("thought-type").value;
+            const placeholderInput = document.getElementById("thought-details");
+
+            let newPlaceholder = "";
+            switch (selectedOption) {
+                case "i-am":
+                    newPlaceholder = "I am...";
+                    break;
+                case "i-must":
+                    newPlaceholder = "I must...";
+                    break;
+                case "i-have-to":
+                    newPlaceholder = "I have to...";
+                    break;
+                case "i-always":
+                    newPlaceholder = "I always...";
+                    break;
+                case "i-never":
+                    newPlaceholder = "I never...";
+                    break;
+                case "i-should":
+                    newPlaceholder = "I should...";
+                    break;
+                case "i-shouldn't":
+                    newPlaceholder = "I shouldn't...";
+                    break;
+                default:
+                    newPlaceholder = "Complete your thought here.";
+            }
+
+            placeholderInput.placeholder = newPlaceholder;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -15,7 +47,7 @@
     <main>
         <section id="thought-input">
             <h2>Identify Your Thought</h2>
-            <select id="thought-type">
+            <select id="thought-type" onchange="updatePlaceholder()">
                 <option value="">Select a thought type</option>
                 <option value="i-am">I am...</option>
                 <option value="i-must">I must...</option>
