@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let starterText = thoughtType.options[thoughtType.selectedIndex].text;
                 starterText = formatStarterText(starterText);
                 thoughtDetails.value = starterText + ' ';
-                thoughtDetails.placeholder = `Complete your "${starterText}" thought`;
+                thoughtDetails.placeholder = `Complete your "${starterText}" Don't sugarcoat it! Write it as awful as you think it!`;
             }
             thoughtDetails.focus();
             thoughtDetails.setSelectionRange(thoughtDetails.value.length, thoughtDetails.value.length);
