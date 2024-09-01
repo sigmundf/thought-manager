@@ -7,34 +7,109 @@
             const selectedOption = document.getElementById("thought-type").value;
             const placeholderInput = document.getElementById("thought-details");
 
-            let newPlaceholder = "";
+            let newText = "";
             switch (selectedOption) {
                 case "i-am":
-                    newPlaceholder = "I am...";
+                    newText = "I am...";
                     break;
                 case "i-must":
-                    newPlaceholder = "I must...";
+                    newText = "I must...";
                     break;
-                case "i-have-to":
-                    newPlaceholder = "I have to...";
-                    break;
-                case "i-always":
-                    newPlaceholder = "I always...";
-                    break;
-                case "i-never":
-                    newPlaceholder = "I never...";
-                    break;
-                case "i-should":
-                    newPlaceholder = "I should...";
-                    break;
-                case "i-shouldn't":
-                    newPlaceholder = "I shouldn't...";
-                    break;
+                // ... other cases
                 default:
-                    newPlaceholder = "Complete your thought here.";
+                    newText = "Complete your thought here.";
             }
 
-            placeholderInput.placeholder = newPlaceholder;
+            // Create a new text box with the updated text and placeholder
+            const newTextBox = document.createElement("input");
+            newTextBox.type = "text";
+            newTextBox.value = newText;
+            newTextBox.placeholder = "Don't sugarcoat it! Write it as awful as you think it!";
+            placeholderInput.parentNode.replaceChild(newTextBox, placeholderInput);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        </header>
+
+    <main>
+        <section id="thought-input">
+            <h2>Identify Your Thought</h2>
+            <select id="thought-type" onchange="updatePlaceholder()">
+                </select>
+            <div id="thought-details"></div>
+        </section>
+    </main>
+</body>
+</html>
+Use code with caution.
+
+Explanation:
+
+Dynamic Text Box Creation: The updatePlaceholder() function now creates a new input element with the desired text and placeholder.
+Replacement: The newly created text box replaces the existing placeholderInput element in the DOM, effectively updating the content on the page.
+HTML Structure: The thought-details element is now a div to accommodate the dynamically created text box.
+This code ensures that when a user selects an option, a new text box with the appropriate placeholder is created, providing a more interactive and dynamic experience.
+
+
+
+
+
+
+
+yes but include all the examples
+
+
+Show drafts
+
+
+Improved Code with All Examples and Dynamic Text Box Creation
+Here's the revised code that includes all the original options and creates a new text box with placeholder text based on the selected option:
+
+HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thought Manager</title>
+    <script>
+        function updatePlaceholder() {
+            const selectedOption = document.getElementById("thought-type").value;
+            const placeholderInput = document.getElementById("thought-details");
+
+            let newText = "";
+            switch (selectedOption) {
+                case "i-am":
+                    newText = "I am...";
+                    break;
+                case "i-must":
+                    newText = "I must...";
+                    break;
+                case "i-have-to":
+                    newText = "I have to...";
+                    break;
+                case "i-always":
+                    newText = "I always...";
+                    break;
+                case "i-never":
+                    newText = "I never...";
+                    break;
+                case "i-should":
+                    newText = "I should...";
+                    break;
+                case "i-shouldn't":
+                    newText = "I shouldn't...";
+                    break;
+                default:
+                    newText = "Complete your thought here.";
+            }
+
+            // Create a new text box with the updated text and placeholder
+            const newTextBox = document.createElement("input");
+            newTextBox.type = "text";
+            newTextBox.value = newText;
+            newTextBox.placeholder = "Don't sugarcoat it! Write it as awful as you think it!";
+            placeholderInput.parentNode.replaceChild(newTextBox, placeholderInput);
         }
     </script>
 </head>
@@ -57,28 +132,7 @@
                 <option value="i-should">I should...</option>
                 <option value="i-shouldn't">I shouldn't...</option>
             </select>
-            <input type="text" id="thought-details" placeholder="Complete your thought here. Don't sugarcoat it! Write it as awful as you think it!">
-        </section>
-
-        <section id="initial-feelings">
-            <h2>This Thought Makes Me Feel</h2>
-            <select id="initial-feeling">
-                <option value="">Select a feeling...</option>
-                <option value="Sad">Sad</option>
-                <option value="Despondent">Despondent</option>
-                <option value="Miserable">Miserable</option>
-                <option value="Angry">Angry</option>
-                <option value="Embarrassed">Embarrassed</option>
-                <option value="Anxious">Anxious</option>
-                <option value="Empty">Empty</option>
-                <option value="Overwhelmed">Overwhelmed</option>
-                <option value="Frustrated">Frustrated</option>
-            </select>
-        </section>
-
-        <section id="evidence">
-            <h2>Evidence Against This Thought</h2>
-            <textarea id="evidence-input" rows="5" placeholder="It only takes one instance on Earth to prove the theory of gravity is wrong. Similarly, you only need one piece of evidence to poke holes in your black and white thoughts. What evidence suggests this thought might not be ENTIRELY true?"></textarea>
+            <div id="thought-details"></div>
         </section>
 
         <section id="balanced-thought">
