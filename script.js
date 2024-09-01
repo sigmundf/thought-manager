@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 let starterText = thoughtType.options[thoughtType.selectedIndex].text;
                 starterText = formatStarterText(starterText);
-                thoughtDetails.value = starterText + ' ';
+                thoughtDetails.value = starterText + ' Do NOT sugarcoat it! Write it as bad as it is!';
                 thoughtDetails.placeholder = `Complete your "${starterText}" thought`;
             }
             thoughtDetails.focus();
