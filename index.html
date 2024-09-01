@@ -1,118 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Thought Manager</title>
-    <script>
-        function updatePlaceholder() {
-            const selectedOption = document.getElementById("thought-type").value;
-            const thoughtDetailsDiv = document.getElementById("thought-details");
-
-            let newText = "";
-            switch (selectedOption) {
-                case "i-am":
-                    newText = "I am...";
-                    break;
-                case "i-must":
-                    newText = "I must...";
-                    break;
-                case "i-have-to":
-                    newText = "I have to...";
-                    break;
-                case "i-always":
-                    newText = "I always...";
-                    break;
-                case "i-never":
-                    newText = "I never...";
-                    break;
-                case "i-should":
-                    newText = "I should...";
-                    break;
-                case "i-shouldn't":
-                    newText = "I shouldn't...";
-                    break;
-                default:
-                    newText = "Complete your thought here.";
-            }
-
-            // Create a new text box with the updated text and placeholder
-            const newTextBox = document.createElement("input");
-            newTextBox.type = "text";
-            newTextBox.value = newText;
-            newTextBox.placeholder = "Don't sugarcoat it! Write it as awful as you think it!";
-
-            // Clear the previous content of the div
-            thoughtDetailsDiv.innerHTML = "";
-
-            // Append the new text box to the div
-            thoughtDetailsDiv.appendChild(newTextBox);
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thought Manager</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Thought Manager</h1>
-        <p>Your feelings often deceive you! You don't have to ACT on your feelings. They are often inaccurate! Challenge your automatic thoughts and develop more balanced thinking. This will soften your feelings. Practice!</p>
-    </header>
+    <header>
+        <h1>Thought Manager</h1>
+        <p>Your feelings often deceive you! You don't have to ACT on your feelings. They are often inaccurate! Challenge your automatic thoughts and develop more balanced thinking. This will soften your feelings. Practice!</p>
+    </header>
 
-    <main>
-        <section id="thought-input">
-            <h2>Identify Your Thought</h2>
-            <select id="thought-type" onchange="updatePlaceholder()">
-                <option value="">Select a thought type</option>
-                <option value="i-am">I am...</option>
-                <option value="i-must">I must...</option>
-                <option value="i-have-to">I have to...</option>
-                <option value="i-always">I always...</option>
-                <option value="i-never">I never...</option>
-                <option value="i-should">I should...</option>
-                <option value="i-shouldn't">I shouldn't...</option>
-            </select>
-            <div id="thought-details"></div>
-        </section>
+    <main>
+        <section id="thought-input">
+            <h2>Identify Your Thought</h2>
+            <select id="thought-type">
+                <option value="">Select a thought type</option>
+                <option value="i-am">I am...</option>
+                <option value="i-must">I must...</option>
+                <option value="i-have-to">I have to...</option>
+                <option value="i-always">I always...</option>
+                <option value="i-never">I never...</option>
+                <option value="i-should">I should...</option>
+                <option value="i-shouldn't">I shouldn't...</option>
+            </select>
+            <input type="text" id="thought-details" placeholder="Complete your thought here. Don't sugarcoat it! Write it as awful as you think it!">
+        </section>
 
-        <section id="balanced-thought">
-            <h2>Develop a Balanced Thought</h2>
-            <select id="balanced-thought-starter">
-                <option value="">Select a starter...</option>
-                <option value="it-would-be-nice">It would be nice if...</option>
-                <option value="i-prefer">I prefer...</option>
-                <option value="i-dont-have-to">I don't have to...</option>
-                <option value="sometimes">Sometimes...</option>
-                <option value="custom">Custom starter...</option>
-            </select>
-            <textarea id="balanced-thought-input" rows="4" placeholder="Complete your balanced thought here..."></textarea>
-        </section>
+        <section id="initial-feelings">
+            <h2>This Thought Makes Me Feel</h2>
+            <select id="initial-feeling">
+                <option value="">Select a feeling...</option>
+                <option value="Sad">Sad</option>
+                <option value="Despondent">Despondent</option>
+                <option value="Miserable">Miserable</option>
+                <option value="Angry">Angry</option>
+                <option value="Embarrassed">Embarrassed</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Empty">Empty</option>
+                <option value="Overwhelmed">Overwhelmed</option>
+                <option value="Frustrated">Frustrated</option>
+            </select>
+        </section>
 
-        <section id="final-feelings">
-            <h2>And This Makes Me Feel</h2>
-            <select id="final-feeling">
-                <option value="">Select a feeling...</option>
-                <option value="Disappointed">Disappointed</option>
-                <option value="Disappointed but it's Manageable">Disappointed but it's Manageable</option>
-                <option value="Resigned">Resigned</option>
-                <option value="Relieved">Relieved</option>
-                <option value="Calm">Calm</option>
-                <option value="More-content">More Content</option>
-                <option value="Hopeful">Hopeful</option>
-                <option value="Grateful">Grateful</option>
-                <option value="A-bit-more-confident">A Bit More Confident</option>
-                <option value="A-bit-better">A Bit Better</option>
-                <option value="Hopeful">Hopeful</option>
-            </select>
-        </section>
+        <section id="evidence">
+            <h2>Evidence Against This Thought</h2>
+            <textarea id="evidence-input" rows="5" placeholder="It only takes one instance on Earth to prove the theory of gravity is wrong. Similarly, you only need one piece of evidence to poke holes in your black and white thoughts. What evidence suggests this thought might not be ENTIRELY true?"></textarea>
+        </section>
 
-        <button id="save-thought">Save This Thought Exercise</button>
-        
-        <section id="saved-thoughts">
-            <h2>Your Thought Exercises</h2>
-            <a href="saved-thoughts.html" class="button">View All Saved Thoughts</a>
-        </section>
-    </main>
+        <section id="balanced-thought">
+            <h2>Develop a Balanced Thought</h2>
+            <select id="balanced-thought-starter">
+                <option value="">Select a starter...</option>
+                <option value="it-would-be-nice">It would be nice if...</option>
+                <option value="i-prefer">I prefer...</option>
+                <option value="i-dont-have-to">I don't have to...</option>
+                <option value="sometimes">Sometimes...</option>
+                <option value="custom">Custom starter...</option>
+            </select>
+            <textarea id="balanced-thought-input" rows="4" placeholder="Complete your balanced thought here..."></textarea>
+        </section>
 
-    <footer>
-        <p>Remember: Thoughts are not facts. Practice challenging them regularly.</p>
-    </footer>
+        <section id="final-feelings">
+            <h2>And This Makes Me Feel</h2>
+            <select id="final-feeling">
+                <option value="">Select a feeling...</option>
+                <option value="Disappointed">Disappointed</option>
+                <option value="Disappointed but it's Manageable">Disappointed but it's Manageable</option>
+                <option value="Resigned">Resigned</option>
+                <option value="Relieved">Relieved</option>
+                <option value="Calm">Calm</option>
+                <option value="More-content">More Content</option>
+                <option value="Hopeful">Hopeful</option>
+                <option value="Grateful">Grateful</option>
+                <option value="A-bit-more-confident">A Bit More Confident</option>
+                <option value="A-bit-better">A Bit Better</option>
+                <option value="Hopeful">Hopeful</option>
+            </select>
+        </section>
 
-    <script src="script.js"></script>
+        <button id="save-thought">Save This Thought Exercise</button>
+        
+        <section id="saved-thoughts">
+            <h2>Your Thought Exercises</h2>
+            <a href="saved-thoughts.html" class="button">View All Saved Thoughts</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Remember: Thoughts are not facts. Practice challenging them regularly.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
